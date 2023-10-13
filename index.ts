@@ -17,13 +17,11 @@ const checkFor = async (processName: string) => {
         console.log(`${processName} started.`);
       }
     } else if (startTime) {
-      const runtimeInSeconds = moment().diff(startTime, "seconds");
+      const runtimeInMinutes = moment().diff(startTime, "minutes");
       const formattedDate = moment().format("MM/DD/YYYY");
-      const formattedRuntime = `${runtimeInSeconds} seconds`;
+      const formattedRuntime = `${runtimeInMinutes} minutes`;
 
-      const tableRow = `
-      |--------------|------------------|---------------|
-      | ${processName}    | ${formattedDate}       | ${formattedRuntime}    |\n`;
+      const tableRow = `|--------------|------------------|---------------|\n| ${processName}    | ${formattedDate}       | ${formattedRuntime}    |\n`;
 
       let existingContent = "";
       if (fs.existsSync("runtime.txt")) {
