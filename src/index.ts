@@ -22,7 +22,7 @@ const checkFor = async (processName: string) => {
       const formattedDate = moment().format("MM/DD/YYYY");
       const formattedRuntime = `${runtimeInMinutes} minutes`;
 
-      const maxRuntimeWidth = 10;
+      const maxRuntimeWidth = 14;
       const runtimePadding = calculatePadding(
         maxRuntimeWidth,
         formattedRuntime
@@ -31,9 +31,9 @@ const checkFor = async (processName: string) => {
       const tableRow = `|--------------|------------------|---------------|\n| ${processName}    | ${formattedDate}       | ${formattedRuntime}${runtimePadding}|\n`;
 
       let existingContent = "";
-      if (fs.existsSync("../report/runtime.txt")) {
+      if (fs.existsSync("report/runtime.txt")) {
         existingContent = await fs.promises.readFile(
-          "../report/runtime.txt",
+          "report/runtime.txt",
           "utf-8"
         );
       }
@@ -46,7 +46,7 @@ const checkFor = async (processName: string) => {
         existingContent = `| Process Name | Start Time       | Runtime       |\n${tableRow}`;
       }
 
-      await fs.promises.writeFile("../report/runtime.txt", existingContent);
+      await fs.promises.writeFile("report/runtime.txt", existingContent);
       startTime = null;
     } else {
       console.log(`${processName} not started yet.`);
