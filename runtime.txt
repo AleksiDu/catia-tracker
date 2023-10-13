@@ -1,4 +1,0 @@
-|CNEXT.exe|at Fri Oct 13 2023 13:48:59 GMT+0400 (Georgia Standard Time)|49seconds|
-+--------------+----------------+--------------------------+| Process Name | Start Time       | Runtime       |
-|--------------|------------------|---------------|
-| CNEXT.exe | 10/13/2023 | 49 seconds |
